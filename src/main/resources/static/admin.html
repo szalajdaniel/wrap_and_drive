@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Wrap&Drive</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="store-layout">
+<header>
+    <div class="header-top">
+        <div class="nav-links"><a href="index.html">← Sklep</a></div>
+
+        <div class="logo-container">
+            <h2>Panel Admina</h2>
+        </div>
+        <div class="header-actions">
+            <button class="btn-secondary" onclick="logout()">Wyloguj</button>
+        </div>
+    </div>
+</header>
+<div class="admin-container">
+    <div class="admin-card">
+        <h3>Dodaj produkt</h3>
+        <div class="admin-form">
+            <input type="text" id="p-name" placeholder="Nazwa">
+            <input type="number" id="p-price" placeholder="Cena">
+            <input type="text" id="p-manuf" placeholder="Producent">
+            <input type="text" id="p-finish" placeholder="Wykończenie">
+            <input type="text" id="p-img" placeholder="URL Zdjęcia">
+            <button onclick="adminAddProduct()">Dodaj do bazy</button>
+        </div>
+    </div>
+    <div class="admin-card">
+        <h3>Produkty</h3>
+        <table><thead><tr><th>Nazwa</th><th>Akcja</th></tr></thead><tbody id="admin-products"></tbody></table>
+    </div>
+    <div class="admin-card">
+        <h3>Użytkownicy</h3>
+        <table><thead><tr><th>User</th><th>Akcja</th></tr></thead><tbody id="admin-users"></tbody></table>
+    </div>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

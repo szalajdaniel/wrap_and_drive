@@ -3,31 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Koszyk - Wrap&Drive</title>
-    <style>
-        :root { --mint: #A3D2CA; --dark-grey: #4A4A4A; --border: #E0E0E0; --bg: #F8F9FA; }
-        body { background-color: var(--bg); color: var(--dark-grey); font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; padding: 40px 20px; display: flex; justify-content: center; }
-        .cart-container { background: #FFFFFF; border: 1px solid var(--border); padding: 30px; width: 100%; max-width: 800px; }
-        h2 { border-bottom: 2px solid var(--mint); padding-bottom: 15px; margin-top: 0; }
-        .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--border); }
-        .item-info h3 { margin: 0 0 8px 0; font-size: 16px; }
-        .qty-controls { display: flex; align-items: center; border: 1px solid var(--border); }
-        .qty-controls button { border: none; background: #f0f0f0; padding: 8px 12px; cursor: pointer; }
-        .qty-controls input { width: 40px; border: none; text-align: center; }
-        .item-total { font-weight: bold; font-size: 18px; text-align: right; }
-        .cart-summary { margin-top: 30px; text-align: right; font-size: 20px; }
-        .btn-checkout { background: var(--mint); color: white; border: none; padding: 15px 30px; margin-top: 25px; cursor: pointer; font-weight: bold; width: 100%; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-<div class="cart-container">
-    <h2>Twój Koszyk</h2>
-    <div class="cart-item">
-        <div class="item-info"><h3>3M Wrap Film 2080 - Deep Black</h3></div>
-        <div class="qty-controls"><button>-</button><input type="text" value="2"><button>+</button></div>
-        <div class="item-total">299,98 zł</div>
+<body class="store-layout">
+<header>
+    <div class="header-top">
+        <div class="nav-links"><a href="index.html">← Sklep</a></div>
+
+        <div class="logo-container">
+            <h2></h2>
+            <img src="logo.png" alt="Wrap&Drive Logo" class="header-logo" onerror="this.style.display='none'">
+        </div>
+
+        <div class="header-actions">
+            <span id="auth-buttons"></span>
+            <a href="cart.html" class="cart-link">Koszyk <span id="cart-badge" class="cart-badge">0</span></a>
+        </div>
     </div>
-    <div class="cart-summary">Suma całkowita: <strong>299,98 zł</strong></div>
-    <button class="btn-checkout">Przejdź do kasy</button>
+</header>
+<div class="main-content">
+    <div class="form-container" style="margin: 0 auto;">
+        <h2>Twój Koszyk</h2>
+        <div id="cart-items"></div>
+        <div class="cart-summary">Suma: <strong id="cart-total">0.00 zł</strong></div>
+        <button class="btn-action" onclick="proceedToCheckout()">Przejdź do kasy</button>
+    </div>
 </div>
+<script src="app.js"></script>
 </body>
 </html>

@@ -1,4 +1,5 @@
 package wrap_and_drive.Model;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -7,19 +8,31 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false, unique = true, length = 50)
+
+    @Column(nullable = false, unique = true)
     private String username;
-    @Column(nullable = false, unique = true, length = 100)
+
+    @Column(nullable = false, unique = true)
     private String email;
-    @Column(nullable = false, length = 20)
+
+    @Column(nullable = false)
     private String role;
-    @Column(name = "password_hash", nullable = false)
+
+    @Column(name = "password_hash", nullable = false) // Musi być dokładnie tak jak w XML
     private String passwordHash;
 
+    // 1. PUSTY KONSTRUKTOR (BEZWZGLĘDNIE WYMAGANY)
     public User() {}
+
+    // 2. KONSTRUKTOR Z PARAMETRAMI
     public User(String username, String email, String role, String passwordHash) {
-        this.username = username; this.email = email; this.role = role; this.passwordHash = passwordHash;
+        this.username = username;
+        this.email = email;
+        this.role = role;
+        this.passwordHash = passwordHash;
     }
+
+    // GETTERY I SETTERY
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
     public String getUsername() { return username; }
