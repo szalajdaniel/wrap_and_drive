@@ -3,40 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Kasa - Wrap&Drive</title>
-    <style>
-        :root { --mint: #A3D2CA; --dark-grey: #4A4A4A; --border: #E0E0E0; --bg: #F8F9FA; }
-        body { background-color: var(--bg); color: var(--dark-grey); font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; padding: 40px 20px; display: flex; justify-content: center; }
-        .checkout-container { background: #FFFFFF; border: 1px solid var(--border); padding: 30px; width: 100%; max-width: 600px; }
-        h2 { border-bottom: 2px solid var(--mint); padding-bottom: 15px; margin-top: 0; }
-        .form-section { margin-bottom: 25px; }
-        .input-group { margin-bottom: 15px; }
-        .input-group label { display: block; font-size: 13px; margin-bottom: 5px; }
-        .input-group input, .input-group select { width: 100%; padding: 10px; border: 1px solid var(--border); box-sizing: border-box; }
-        .row { display: flex; gap: 15px; }
-        .row .input-group { flex: 1; }
-        .btn-pay { background: var(--mint); color: white; border: none; padding: 15px; cursor: pointer; font-weight: bold; width: 100%; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-<div class="checkout-container">
-    <h2>Dane do wysyłki</h2>
-    <form action="/api/orders" method="POST">
-        <div class="form-section">
-            <div class="input-group"><label>Imię i nazwisko</label><input type="text" name="fullName" required></div>
-            <div class="row">
-                <div class="input-group"><label>E-mail</label><input type="email" name="email" required></div>
-                <div class="input-group"><label>Telefon</label><input type="tel" name="phone" required></div>
-            </div>
+<body class="form-layout">
+<div class="form-container" style="max-width: 600px;">
+    <div class="logo-container" style="margin-bottom: 20px;">
+
+
+    <h3 style="text-align:center; margin-bottom: 20px;">Finalizacja zamówienia</h3>
+    <form onsubmit="submitOrder(event)">
+        <input type="text" name="fullName" placeholder="Imię i nazwisko" required style="width:100%; padding:12px; margin-bottom:10px; border:1px solid var(--border);">
+        <div style="display:flex; gap:10px; margin-bottom:10px;">
+            <input type="email" name="email" placeholder="E-mail" required style="flex:1; padding:12px; border:1px solid var(--border);">
+            <input type="tel" name="phone" placeholder="Telefon" required style="flex:1; padding:12px; border:1px solid var(--border);">
         </div>
-        <div class="form-section">
-            <div class="input-group"><label>Ulica</label><input type="text" name="address" required></div>
-            <div class="row">
-                <div class="input-group"><label>Kod pocztowy</label><input type="text" name="zip" required></div>
-                <div class="input-group"><label>Miasto</label><input type="text" name="city" required></div>
-            </div>
-        </div>
-        <button type="submit" class="btn-pay">Zamawiam i płacę</button>
+        <input type="text" name="address" placeholder="Adres" required style="width:100%; padding:12px; margin-bottom:20px; border:1px solid var(--border);">
+        <button type="submit" class="btn-action" style="margin-top:0;">Zamawiam i płacę</button>
+        <a href="cart.html" style="display:block; text-align:center; margin-top:15px; color:var(--grey); text-decoration:none;">Wróć do koszyka</a>
     </form>
 </div>
+<script src="app.js"></script>
 </body>
 </html>

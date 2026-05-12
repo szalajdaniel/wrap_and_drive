@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="create-table-products-v3" author="marcin">
+        <createTable tableName="products">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="price" type="DECIMAL(10,2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="manufacturer" type="VARCHAR(50)"/>
+            <column name="image_url" type="VARCHAR(500)"/>
+            <column name="finish_type" type="VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="insert-initial-products-v3" author="marcin">
+        <insert tableName="products">
+            <column name="name" value="3M Deep Black Matte"/>
+            <column name="price" value="149.00"/>
+            <column name="manufacturer" value="3M"/>
+            <column name="finish_type" value="Matowa"/>
+            <column name="image_url" value="https://via.placeholder.com/300x200?text=Folia+3M"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
